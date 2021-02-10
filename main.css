@@ -2,6 +2,12 @@
     color: #ffffff;
     background-color: #00674C;
     text-align: center;
+    right: 0;
+    position: fixed;
+    left: 0;
+    /* bottom: 0; */
+    width: 100%;
+    text-align: center;
 }
 
 
@@ -21,7 +27,6 @@
     text-align: center;
     height: 400px;
     width: 50%;
-    display: table-cell;
 }
 
 #lbl2,
@@ -30,14 +35,10 @@
 }
 
 #button1 {
-    /* position: absolute; */
-    /* top: 50%; */
     padding-top: 20%;
-    /* padding-bottom: 50%; */
 }
 
 #button2 {
-    /* top: 50%; */
     padding-top: 20%;
 }
 
@@ -51,4 +52,14 @@
 
 #foot {
     background-color: #00674C;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+#layout {
+    padding-top: 5.5%;
 }

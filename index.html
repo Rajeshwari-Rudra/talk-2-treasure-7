@@ -8,75 +8,45 @@
     <link rel="stylesheet" href="./main.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <div class="header" style="background-color: rgb(0, 51, 0); height: 85px;">
-        <br>
-        <p style="color: white;text-align: center;">
-            Talk: 2 Group: 1
-        </p>
-        <br>
+    <nav class="footer-copyright text-center py-3" id="nav">
+        <a class="navbar-brand" id="navIn">
+            Talk: 2 Group:1
+        </a>
+    </nav>
 
-    </div>
 
     <br>
-    <div class="row">
+    <br>
+    <br>
+    <div class="row ">
 
-        <div class="col-sm-6" style="background-color: rgb(241, 247, 233); height: 400px;" id="bgrone">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="col-sm-3">
+        <div id="bgrone">
+
+            <div id="button1">
+                <button type="button" id="color1" class="btn" onclick="colorFunction1() "><i class="fas fa-magic mr-1"></i> Left Button </button><br><br> <span id="lbl"></span>
             </div>
-            <div class="col-sm-6">
-                <button type="button" style="background-color: rgba(71, 201, 71);" onclick="myFunction()"></span>Button 1</button>
-
-                <br>
-                <span id="lbl"></span>
-
-            </div>
-
-            <div class="col-sm-3"></div>
-            <br>
-            <br>
-            <br>
-            <br>
-
 
         </div>
 
-        <div class="col-sm-6" style="background-color: rgba(250, 255, 255, 0.918); text-align: center; height: 400px;" id="bgrtwo">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="col-sm-3">
-            </div>
-            <div class="col-sm-6">
-                <button type="button" style="background-color: rgba(143, 168, 143);" onclick="myFunction2()">Button 2</button>
-            </div>
-            <br>
-            <span id="lbl2"></span>
+        <div class="col" id="bgrtwo">
 
-            <div class="col-sm-3"></div>
-            <br>
-            <br>
-            <br>
-            <br>
+            <div id="button2">
+                <button type="button" id="color2" class="btn " onclick="colorFunction2()"> Right Button<i class="fas fa-magic ml-1"></i></button><br><br>
+                <span id="lbl2"></span>
+            </div>
+
 
         </div>
 
@@ -86,17 +56,29 @@
 
 </body>
 <br>
-<br>
-<footer style="background-color: rgb(0, 51, 0); height: 85px;">
+<br><br><br>
+<!-- Footer -->
+<footer class="page-footer" id="foot">
 
-    <br>
-    <p style="color: white;text-align: center;">
-        Link
-    </p>
-    <br>
+    <!-- Copyright -->
+    <div class=" text-center py-3 ">© 2020 Copyright:
+
+        <a href="https://github.com/Saikrishna1545/talk2-group1 ">
+            <i class="fab fa-github "></i> GitHub</a>
+    </div>
+    <!-- Copyright -->
+
 </footer>
 
-<script src="./main.js"></script>
+<script src="./main.js "></script>
+<!-- JQuery -->
+<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js "></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js "></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js "></script>
 
 
 

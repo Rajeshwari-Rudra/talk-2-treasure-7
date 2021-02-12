@@ -10,6 +10,13 @@
     text-align: center;
 }
 
+#navIn {
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 200%;
+}
+
 
 /* #navIn {
     width: 35%;
@@ -62,4 +69,11 @@
 
 #layout {
     padding-top: 5.5%;
+}
+
+#lbl,
+#lbl2 {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
 }

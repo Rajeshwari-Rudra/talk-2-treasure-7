@@ -1,5 +1,6 @@
-# talk2-group1
+# talk-2-treasure-7
+ - This project is based on tracing a location and tells the user if they are inside the treasure location or not.
 
-## Google Analytics 
-
-  (https://analytics.google.com/analytics/web/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fabout%2Fanalytics%2F#/p262098986/realtime/overview?params=_u..nav%3Ddefault) 
+## References
+- [Source Repo](https://github.com/Saikrishna1545/talk2-group1)
+- [Jest](https://jestjs.io/docs/en/getting-started)

@@ -4,6 +4,14 @@
 
  - This project is based on tracing a location and tells the user if they are inside the treasure location or not.
 
+## Group Members and their roles
+- Rajeshwari Rudravaram - Architect
+- Harika Kulkarni - Developer
+- Golla Durga Prasad - Test Developer
+
+## Hosted app
+- [GitHub Hosted app link](https://rajeshwari-rudra.github.io/talk-2-treasure-7/)
+
 ## References
 - [Source Repo](https://github.com/Saikrishna1545/talk2-group1)
 - [Jest](https://jestjs.io/docs/en/getting-started)

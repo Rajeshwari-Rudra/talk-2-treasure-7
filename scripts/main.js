@@ -37,9 +37,9 @@ async function locationHandler() {
     document.getElementById("device-lat").innerHTML = "Your device-lat: " + currentlat.toFixed(6);
     currentlon = locText.coords.longitude;
     document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6);
-  
-  
-   target.forEach(function (value) {
+
+
+    target.forEach(function(value) {
 
         if (isInside(value.Latitude, value.Longitude)) {
             document.getElementById("locationAnswer").innerHTML = value.Name;
@@ -47,12 +47,12 @@ async function locationHandler() {
             speechSynthesis.speak(utterance);
             error = false;
         }
-   });
+    });
 
     if (error) {
         document.getElementById("error-message").innerHTML = "You are out of range from target location";
         let utterance = new SpeechSynthesisUtterance("You are out of range from target location");
-            speechSynthesis.speak(utterance);
+        speechSynthesis.speak(utterance);
     } else {
         document.getElementById("error-message").innerHTML = "";
     }
@@ -86,18 +86,18 @@ function distanceBetweenLocations(questLat, questLon) {
 
 
 function colorFunction1() {
-    locationsArray.forEach(function (value) {
+    locationsArray.forEach(function(value) {
 
-        if (value.Latitude==target.latitude && value.Longitude==target.longitude) {
-            var name=document.getElementById("locationAnswer").innerHTML = value.Name;
-            document.getElementById("lbl").innerHTML =name ;
-        let utterance = new SpeechSynthesisUtterance(` Your target location is ${name}`);
-    speechSynthesis.speak(utterance);
-            
-        }})
-    
+        if (value.Latitude == target.latitude && value.Longitude == target.longitude) {
+            var name = document.getElementById("locationAnswer").innerHTML = value.Name;
+            document.getElementById("lbl").innerHTML = name;
+            let utterance = new SpeechSynthesisUtterance(` Your target location is ${name}`);
+            speechSynthesis.speak(utterance);
+
+        }
+    })
+
     document.getElementById("bgrone").style.backgroundColor = "#7aeb7a";
-    
-    
-    }
- 
+
+
+}

@@ -78,12 +78,10 @@ function distanceBetweenLocations(questLat, questLon) {
     const φ2 = questLat * Math.PI / 180;
     const Δφ = (questLat - currentlat) * Math.PI / 180;
     const Δλ = (questLon - currentlon) * Math.PI / 180;
-
     const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
         Math.cos(φ1) * Math.cos(φ2) *
         Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
     const d = R * c;
     return d;
 }

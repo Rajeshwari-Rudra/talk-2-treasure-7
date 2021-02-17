@@ -18,7 +18,7 @@ let currentlat;
 let currentlon;
 let error = true;
 
-var target = [locationsArray[Math.floor(Math.random() * locationsArray.length)]];
+var target = locationsArray[Math.floor(Math.random() * locationsArray.length)].Name;
 
 
 
@@ -37,11 +37,18 @@ async function locationHandler() {
     document.getElementById("device-lat").innerHTML = "Your device-lat: " + currentlat.toFixed(6);
     currentlon = locText.coords.longitude;
     document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6);
+<<<<<<< HEAD
 
 
     target.forEach(function(value) {
+=======
+  
+  
+   locationsArray.forEach(function (value) {
+>>>>>>> 8c28e0c542840dd036ab385a8f61e6df09cb8192
 
-        if (isInside(value.Latitude, value.Longitude)) {
+        if (isInside(target.latitude, target.longitude)) {
+            
             document.getElementById("locationAnswer").innerHTML = value.Name;
             let utterance = new SpeechSynthesisUtterance("You are in range. Welcome to " + value.Name);
             speechSynthesis.speak(utterance);
@@ -61,7 +68,7 @@ async function locationHandler() {
 function isInside(questLat, questLon) {
     let distance = distanceBetweenLocations(questLat, questLon);
     console.log("distance: " + distance);
-    if (distance < 0.3) {
+    if (distance < 30) {
         return true;
     } else {
         return false;
@@ -86,6 +93,7 @@ function distanceBetweenLocations(questLat, questLon) {
 
 
 function colorFunction1() {
+<<<<<<< HEAD
     locationsArray.forEach(function(value) {
 
         if (value.Latitude == target.latitude && value.Longitude == target.longitude) {
@@ -101,3 +109,14 @@ function colorFunction1() {
 
 
 }
+=======
+
+        document.getElementById("bgrone").style.backgroundColor = "#7aeb7a";
+        document.getElementById("lbl").innerHTML = target;
+        let utterance = new SpeechSynthesisUtterance(` Your target location is ${target}`);
+        speechSynthesis.speak(utterance);
+    
+    
+    }
+ 
+>>>>>>> 8c28e0c542840dd036ab385a8f61e6df09cb8192

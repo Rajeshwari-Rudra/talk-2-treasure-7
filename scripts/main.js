@@ -18,6 +18,11 @@ let currentlat;
 let currentlon;
 let error = true;
 
+var target = [locationsArray[Math.floor(Math.random() * locationsArray.length)]];
+
+
+
+
 async function getLocation() {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -32,16 +37,17 @@ async function locationHandler() {
     document.getElementById("device-lat").innerHTML = "Your device-lat: " + currentlat.toFixed(6);
     currentlon = locText.coords.longitude;
     document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6);
-    var target = locationsArray[2].Name
-   // locationsArray.forEach(function (value) {
+  
+  
+   target.forEach(function (value) {
 
-        if (isInside(locationsArray[2].Latitude, locationsArray[2].Longitude)) {
+        if (isInside(value.Latitude, value.Longitude)) {
             document.getElementById("locationAnswer").innerHTML = value.Name;
             let utterance = new SpeechSynthesisUtterance("You are in range. Welcome to " + value.Name);
             speechSynthesis.speak(utterance);
             error = false;
         }
-   // });
+   });
 
     if (error) {
         document.getElementById("error-message").innerHTML = "You are out of range from target location";
@@ -55,7 +61,7 @@ async function locationHandler() {
 function isInside(questLat, questLon) {
     let distance = distanceBetweenLocations(questLat, questLon);
     console.log("distance: " + distance);
-    if (distance < 30) {
+    if (distance < 0.3) {
         return true;
     } else {
         return false;
@@ -80,23 +86,18 @@ function distanceBetweenLocations(questLat, questLon) {
 
 
 function colorFunction1() {
-    // const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", ];
-    var random = locationsArray[2].Name;
-    
-  //  let value = values[random];
-    document.getElementById("bgrone").style.backgroundColor = "#7aeb7a";
-    document.getElementById("lbl").innerHTML = random;
-    let utterance = new SpeechSynthesisUtterance(` Your target location is ${random}`);
-    speechSynthesis.speak(utterance);
-    
-}
+    locationsArray.forEach(function (value) {
 
-/* function colorFunction2() {
-    const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", ];
-    const random = Math.floor(Math.random() * values.length);
-    let value = values[random];
-    document.getElementById("bgrtwo").style.backgroundColor = "#99cfe0";
-    document.getElementById("lbl2").innerHTML = value;
-    let utterance = new SpeechSynthesisUtterance(`     You have picked the card of color Light Blue of the value     ${value}`);
+        if (value.Latitude==target.latitude && value.Longitude==target.longitude) {
+            var name=document.getElementById("locationAnswer").innerHTML = value.Name;
+            document.getElementById("lbl").innerHTML =name ;
+        let utterance = new SpeechSynthesisUtterance(` Your target location is ${name}`);
     speechSynthesis.speak(utterance);
-}*/
+            
+        }})
+    
+    document.getElementById("bgrone").style.backgroundColor = "#7aeb7a";
+    
+    
+    }
+ 

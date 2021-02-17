@@ -39,16 +39,16 @@ async function locationHandler() {
     document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6);
   
   
-   // locationsArray.forEach(function (value) {
+   locationsArray.forEach(function (value) {
 
         if (isInside(target.latitude, target.longitude)) {
             
-            document.getElementById("locationAnswer").innerHTML = target;
-            let utterance = new SpeechSynthesisUtterance("You are in range. Welcome to " + target);
+            document.getElementById("locationAnswer").innerHTML = value.Name;
+            let utterance = new SpeechSynthesisUtterance("You are in range. Welcome to " + value.Name);
             speechSynthesis.speak(utterance);
             error = false;
         }
-   //});
+   });
 
     if (error) {
         document.getElementById("error-message").innerHTML = "You are out of range from target location";

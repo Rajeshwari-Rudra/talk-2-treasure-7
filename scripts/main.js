@@ -28,18 +28,7 @@ function main() {
     console.log('Page is fully loaded');
     // console.log(target1);
 
-    locationsArray.forEach(function(value) {
-        if (value.Name == target) {
-            qlat = value.Latitude;
-            qlong = value.Longitude;
 
-        } else {
-            console.log("invalid");
-        }
-    });
-
-    console.log(qlat);
-    console.log(target);
 }
 
 
@@ -59,7 +48,7 @@ async function locationHandler() {
     document.getElementById("device-lat").innerHTML = "Your device-lat: " + currentlat.toFixed(6);
     currentlon = locText.coords.longitude;
 
-    document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6); 
+    document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6);
 
 
 
@@ -84,9 +73,10 @@ async function locationHandler() {
 function isInside(qlat, qlong) {
     let distance = distanceBetweenLocations(currentlat, currentlon, qlat, qlong);
     console.log("distance: " + distance);
+    let area = (Math.sqrt(3) / 4) * 8.5;
 
 
-    if (distance < 0.4) {
+    if (distance * 10 < area) {
         return true;
     } else {
         return false;
@@ -107,16 +97,23 @@ function distanceBetweenLocations(currentlat, currentlon, qlat, qlong) {
 
 function colorFunction1() {
     locationsArray.forEach(function(value) {
+        if (value.Name == target) {
+            qlat = value.Latitude;
+            qlong = value.Longitude;
 
-        if (value.Latitude == target.latitude && value.Longitude == target.longitude) {
-            var name = document.getElementById("locationAnswer").innerHTML = value.Name;
-            document.getElementById("lbl").innerHTML = name;
-            let utterance = new SpeechSynthesisUtterance(` Your target location is ${name}`);
-            speechSynthesis.speak(utterance);
-
+        } else {
+            console.log("invalid");
         }
-    })
+    });
 
+    console.log(qlat);
+    console.log(target);
+
+
+    // document.getElementById("locationAnswer").innerHTML = value.Name;
+    // document.getElementById("lbl").innerHTML = Name;
+    // let utterance = new SpeechSynthesisUtterance(` Your target location is ${name}`);
+    // speechSynthesis.speak(utterance);
     document.getElementById("bgrone").style.backgroundColor = "#7aeb7a";
 
 

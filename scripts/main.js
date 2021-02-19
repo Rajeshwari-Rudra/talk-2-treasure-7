@@ -22,7 +22,7 @@ let location,device;
 async function colorFunction1() 
 {
     location = locationsArray[0].Name;
-    // let value = values[random];	
+   	
   	    
     document.getElementById("bgrone").style.backgroundColor = "#7aeb7a";
    // document.getElementById("lbl").innerHTML = location;	    

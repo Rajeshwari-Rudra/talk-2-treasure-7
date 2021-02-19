@@ -1,4 +1,4 @@
-import locationsArray from '../init-locations.js';
+import locationsArray from '../locations.js';
 
 let colorElement1 = document.getElementById("bgrone");
 let colorElement2 = document.getElementById("bgrtwo");
@@ -18,7 +18,7 @@ let currentlat;
 let currentlon;
 let error = true;
 
-var target = locationsArray[Math.floor(Math.random() * locationsArray.length)].Name;
+var target = [locationsArray[Math.floor(Math.random() * locationsArray.length)].Name];
 
 
 
@@ -36,7 +36,7 @@ async function locationHandler() {
     currentlat = locText.coords.latitude;
     document.getElementById("device-lat").innerHTML = "Your device-lat: " + currentlat.toFixed(6);
     currentlon = locText.coords.longitude;
-    document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6); <<
+    document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6); 
 
 
 

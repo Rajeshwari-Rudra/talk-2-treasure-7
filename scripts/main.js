@@ -1,12 +1,10 @@
-import locationsArray from '../init-locations.js';
+import locationsArray from '../locations.js';
 
 let colorElement1 = document.getElementById("bgrone");
 let colorElement2 = document.getElementById("bgrtwo");
 
 
-function main() {
-    console.log('Page is fully loaded');
-}
+
 
 window.addEventListener('load', main);
 colorElement1.addEventListener('click', colorFunction1);
@@ -17,8 +15,32 @@ colorElement2.addEventListener('touch', locationHandler);
 let currentlat;
 let currentlon;
 let error = true;
+let qlat;
+let qlong;
+
 
 var target = locationsArray[Math.floor(Math.random() * locationsArray.length)].Name;
+
+
+
+
+function main() {
+    console.log('Page is fully loaded');
+    // console.log(target1);
+
+    locationsArray.forEach(function(value) {
+        if (value.Name == target) {
+            qlat = value.Latitude;
+            qlong = value.Longitude;
+
+        } else {
+            console.log("invalid");
+        }
+    });
+
+    console.log(qlat);
+    console.log(target);
+}
 
 
 
@@ -36,22 +58,17 @@ async function locationHandler() {
     currentlat = locText.coords.latitude;
     document.getElementById("device-lat").innerHTML = "Your device-lat: " + currentlat.toFixed(6);
     currentlon = locText.coords.longitude;
-    document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6); <<
+    document.getElementById("device-long").innerHTML = "Your device-long: " + currentlon.toFixed(6);
 
 
 
-    target.forEach(function(value) {
+    if (isInside(qlat, qlong)) {
+        document.getElementById("locationAnswer").innerHTML = target;
+        let utterance = new SpeechSynthesisUtterance("You are in range. Welcome to " + target);
+        speechSynthesis.speak(utterance);
+        error = false;
+    }
 
-
-
-        if (isInside(target.latitude, target.longitude)) {
-
-            document.getElementById("locationAnswer").innerHTML = value.Name;
-            let utterance = new SpeechSynthesisUtterance("You are in range. Welcome to " + value.Name);
-            speechSynthesis.speak(utterance);
-            error = false;
-        }
-    });
 
     if (error) {
         document.getElementById("error-message").innerHTML = "You are out of range from target location";
@@ -62,29 +79,28 @@ async function locationHandler() {
     }
 }
 
-function isInside(questLat, questLon) {
-    let distance = distanceBetweenLocations(questLat, questLon);
+function isInside(qlat, qlong) {
+    let distance = distanceBetweenLocations(currentlat, currentlon, qlat, qlong);
     console.log("distance: " + distance);
-    if (distance < 30) {
+
+
+    if (distance < 0.4) {
         return true;
     } else {
         return false;
     }
 }
 
-function distanceBetweenLocations(questLat, questLon) {
-    const R = 6371e3;
-    const φ1 = currentlat * Math.PI / 180;
-    const φ2 = questLat * Math.PI / 180;
-    const Δφ = (questLat - currentlat) * Math.PI / 180;
-    const Δλ = (questLon - currentlon) * Math.PI / 180;
-    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-        Math.cos(φ1) * Math.cos(φ2) *
-        Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const d = R * c;
-    return d;
+
+function distanceBetweenLocations(currentlat, currentlon, qlat, qlong) {
+    var p = 0.017453292519943295;
+    var a = 0.5 - Math.cos((qlat - currentlat) * p) / 2 +
+        Math.cos(currentlat * p) * Math.cos(qlat * p) *
+        (1 - Math.cos((qlong - currentlon) * p)) / 2;
+
+    return 12742 * Math.asin(Math.sqrt(a));
 }
+
 
 
 function colorFunction1() {

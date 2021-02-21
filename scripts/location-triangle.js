@@ -21,12 +21,51 @@ function isValid(coordinate) {
 
 }
 
+var lat = coordinate.lat;
+var lng = coordinate.lng;
 
 
-// function isLatitude(lat) {
-//     return isFinite(lat) && Math.abs(lat) <= 90;
-// }
+function isLatitude(lat) {
+    return isFinite(lat) && Math.abs(lat) <= 90;
+}
 
 function isLongitude(lng) {
     return isFinite(lng) && Math.abs(lng) <= 180;
 }
+
+const isCoordinateValid=(coordinate)=>{
+    //check if dev.coordinate
+    //check if dev.coordinate with isCoordinateValid
+    return true;
+}
+
+const isDeviceValid = (device) =>{
+    let deviceCoordinates = {};
+
+    deviceCoordinates["lat"]=deviceCoordinates.lat;
+    deviceCoordinates['lng']=deviceCoordinates.lng;
+
+    if(isValid(deviceCoordinates))
+    return true;
+}
+const isLocationValid=(location)=>{
+    // check if loc.coordinates array exists
+    //  check if loc.coordinates array length is correct for shape
+    // check if each coordinate is valid.
+    return true;
+}
+
+const isInsideTraingle=(device,location) =>{
+    const isDeviceValid = isDeviceValid(device);
+    const isLocationValid = isLocationValid(location);
+
+    if(!isDeviceValid){
+        throw new Error('Invalid device');
+    }
+    if(!isLocationValid){
+        throw new Error('Invalid location');
+    }
+
+
+return true;
+};

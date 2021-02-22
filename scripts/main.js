@@ -1,5 +1,6 @@
 import locationsArray from '../locations.js';
 
+
 let colorElement1 = document.getElementById("bgrone");
 let colorElement2 = document.getElementById("bgrtwo");
 
@@ -148,6 +149,8 @@ function isInsideTriange(device, location) {
             var invDenom = 1.0 / (dot00 * dot11 - dot01 * dot01);
             var u = (dot11 * dot02 - dot01 * dot12) * invDenom;
             var v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+            console.log(u)
+            console.log(v)
             // Check if point is in triangle
             if ((u >= 0) && (v >= 0) && (u + v < 1)) {
                 return isInside;

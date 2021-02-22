@@ -36,6 +36,7 @@ function isLongitude(lng) {
 const isCoordinateValid=(coordinate)=>{
     //check if dev.coordinate
     //check if dev.coordinate with isCoordinateValid
+    if(isValid(length(coordinate)==3))
     return true;
 }
 
@@ -52,6 +53,7 @@ const isLocationValid=(location)=>{
     // check if loc.coordinates array exists
     //  check if loc.coordinates array length is correct for shape
     // check if each coordinate is valid.
+    if(isValid(location))
     return true;
 }
 
@@ -64,6 +66,35 @@ const isInsideTraingle=(device,location) =>{
     }
     if(!isLocationValid){
         throw new Error('Invalid location');
+    }
+
+    if(isValid(device,location)){
+        let P = device.coords.latitude;
+            let A = device.coords.longitude;
+            let B = location.coords.latitude;
+            let C = location.coords.longitude;
+
+            function vec(from, to) { return [to[0] - from[0], to[1] - from[1]]; }
+            var v0 = vec(A, C);
+            var v1 = vec(A, B);
+            var v2 = vec(A, P);
+
+            function dot(u, v) { return u[0] * v[0] + u[1] * v[1]; }
+            var dot00 = dot(v0, v0);
+            var dot01 = dot(v0, v1);
+            var dot02 = dot(v0, v2);
+            var dot11 = dot(v1, v1);
+            var dot12 = dot(v1, v2);
+            var invDenom = 1.0 / (dot00 * dot11 - dot01 * dot01);
+            var u = (dot11 * dot02 - dot01 * dot12) * invDenom;
+            var v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+            console.log(u)
+            console.log(v)
+            // Check if point is in triangle
+            if ((u >= 0) && (v >= 0) && (u + v < 1)) {
+                return true;
+            }
+
     }
 
 

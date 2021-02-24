@@ -24,6 +24,12 @@ describe('isLocationValid', () => {
     });
 });
 
+describe('ifLocationIsInvalid',()=>{
+    expect(() => isLocationValid()).toThrow('');
+    expect(() => isLocationValid()).toThrow('You have entered wrong location');
+
+});
+
 
 
 

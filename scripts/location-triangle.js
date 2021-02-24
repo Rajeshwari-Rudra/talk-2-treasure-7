@@ -58,7 +58,7 @@ const isLocationValid = (location) => {
         return true;
 }
 
-const isInsideTraingle = (device, location) => {
+const isInsideTriangle = (device, location) => {
     const isDeviceValid = isDeviceValid(device);
     const isLocationValid = isLocationValid(location);
 

@@ -69,15 +69,15 @@ async function getLocation() {
 }
 module.exports = getLocation;
 
-// function isValid(coordinates) {
-//     let lat = coordinates.latitude;
-//     let lon = coordinates.longitude;
+function isValid(coordinates) {
+    let lat = coordinates.latitude;
+    let lon = coordinates.longitude;
 
-//     if (lat < -90 || lat > 90 || lon < -180 || lon > 180)
-//         return false;
-//     else
-//         return true;
-// }
+    if (lat < -90 || lat > 90 || lon < -180 || lon > 180)
+        return false;
+    else
+        return true;
+}
 
 // function isValidDevice(device) {
 //     let deviceCoordinates = {};
@@ -151,7 +151,7 @@ function isInsideTriange(device, location) {
             var v = (dot00 * dot12 - dot01 * dot02) * invDenom;
             console.log(u)
             console.log(v)
-            // Check if point is in triangle
+                // Check if point is in triangle
             if ((u >= 0) && (v >= 0) && (u + v < 1)) {
                 return isInside;
             }
